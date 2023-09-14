@@ -14,7 +14,7 @@ const parseDataToUrls = async (data, fileName) => {
       links.push(`${domain}/${item.iconSvg2Path}`)
     })
 
-    await arrayToTextFile("./ElementsTxt/" + fileName + ".txt", links)
+    await arrayToTextFile("./Figuretxt/" + fileName + ".txt", links)
   } catch (parseError) {
     console.error(parseError)
   }

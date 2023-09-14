@@ -136,7 +136,7 @@ function fetchData(url) {
 async function writeFile(filePath, data) {
   try {
     const jsonData = JSON.stringify(data);
-    await fs.writeFile(`./ElementsJson/${filePath}.json`, jsonData, 'utf8');
+    await fs.writeFile(`./FigureJSONS/${filePath}.json`, jsonData, 'utf8');
 
     console.log('Array written to the file successfully.');
   } catch (err) {
@@ -150,7 +150,7 @@ async function writeFile(filePath, data) {
 async function fetchMultipleData(urls) {
 
   for (const url of urls) {
-    const data = await fetchData(getElementUrl(url.id));
+    const data = await fetchData(getFigureUrl(url.id));
     await writeFile(url.category, data)
   }
 
