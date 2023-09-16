@@ -10,8 +10,8 @@ const cliProgress = require('cli-progress');
 const progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 let current = 0;
 
-const outputFolderPath = './animalTxt'; // Replace with the path to your 'output' folder
-const downloadFolderPath = './animalDownlaod'; // Replace with the path to your 'Downloads' folder
+const outputFolderPath = './txts'; // Replace with the path to your 'output' folder
+const downloadFolderPath = './downloads'; // Replace with the path to your 'Downloads' folder
 
 async function downloadSVGFiles(filesToDownload) {
   try {
@@ -82,7 +82,7 @@ async function countTotalLinksInFolder(folderPath) {
   }
 }
 
-(async () => {
+const startDownload = async () => {
  
   if (cluster.isMaster) {
     const outputFiles = await fs.readdir(outputFolderPath);
@@ -116,4 +116,7 @@ async function countTotalLinksInFolder(folderPath) {
   }
 
 
-})()
+}
+
+
+module.exports = startDownload
