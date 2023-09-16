@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const directoryPath = './FigureJSONS';
+const directoryPath = './plantJson';
 const domain = "https://cdn.xiaonail.com";
 
 
@@ -14,7 +14,7 @@ const parseDataToUrls = async (data, fileName) => {
       links.push(`${domain}/${item.iconSvg2Path}`)
     })
 
-    await arrayToTextFile("./Figuretxt/" + fileName + ".txt", links)
+    await arrayToTextFile("./plantTxt/" + fileName + ".txt", links)
   } catch (parseError) {
     console.error(parseError)
   }

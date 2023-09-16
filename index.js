@@ -118,7 +118,8 @@ const styleIcons = [
 
 const getUrl = (id) => `https://xiaonail.com/Api/Icon/getIconModelList?per=6000&page=1&keywords=&iconCategory=-1&isDraft=0&iconStyleCatID=${id}&isPopSort=1&userID=0&generateType=1&uid=0&partnerName=xyd&webSign=024b286a53a732e7e1ad44b55c817c67`
 const getFigureUrl = id => `https://xiaonail.com/Api/Icon/getIconList?per=6000&page=1&iconStyleID=2&keywords=&iconCategory=-1&iconGender=-1&iconAction=0&iconStyleCatID=${id}&iconGroupID=0&isPopSort=1&uid=0&partnerName=xyd&webSign=2df4ab5548d3f07c85e8c37c6b10896a`
-const getElementUrl = id => `https://xiaonail.com/Api/Icon/getIconList?per=60&page=1&iconStyleID=3&keywords=&iconCategory=-1&iconGender=-1&iconAction=0&iconStyleCatID=${id}&iconGroupID=0&isPopSort=1&uid=0&partnerName=xyd&webSign=2df4ab5548d3f07c85e8c37c6b10896a`
+const getElementUrl = id => `https://xiaonail.com/Api/Icon/getIconList?per=6000&page=1&iconStyleID=3&keywords=&iconCategory=-1&iconGender=-1&iconAction=0&iconStyleCatID=${id}&iconGroupID=0&isPopSort=1&uid=0&partnerName=xyd&webSign=2df4ab5548d3f07c85e8c37c6b10896a`
+const plantUrl = id => `https://xiaonail.com/Api/Icon/getIconList?per=6000&page=1&iconStyleID=4&keywords=&iconCategory=-1&iconGender=-1&iconAction=0&iconStyleCatID=${id}&iconGroupID=0&isPopSort=1&uid=0&partnerName=xyd&webSign=b68986c771d7e5b4081e5fd93113f9ec`
 
 function fetchData(url) {
   return fetch(url)
@@ -136,7 +137,7 @@ function fetchData(url) {
 async function writeFile(filePath, data) {
   try {
     const jsonData = JSON.stringify(data);
-    await fs.writeFile(`./FigureJSONS/${filePath}.json`, jsonData, 'utf8');
+    await fs.writeFile(`./plantJson/${filePath}.json`, jsonData, 'utf8');
 
     console.log('Array written to the file successfully.');
   } catch (err) {
@@ -150,7 +151,7 @@ async function writeFile(filePath, data) {
 async function fetchMultipleData(urls) {
 
   for (const url of urls) {
-    const data = await fetchData(getFigureUrl(url.id));
+    const data = await fetchData(plantUrl(url.id));
     await writeFile(url.category, data)
   }
 

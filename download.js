@@ -10,8 +10,8 @@ const cliProgress = require('cli-progress');
 const progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 let current = 0;
 
-const outputFolderPath = './Figuretxt'; // Replace with the path to your 'output' folder
-const downloadFolderPath = './FigureDownloads'; // Replace with the path to your 'Downloads' folder
+const outputFolderPath = './plantTxt'; // Replace with the path to your 'output' folder
+const downloadFolderPath = './plantJson'; // Replace with the path to your 'Downloads' folder
 
 async function downloadSVGFiles(filesToDownload) {
   try {
